@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Register from './pages/Register';
+import Login from './pages/Login';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/register" element={<Register />} />
-          <Route index element={<h1 className="text-8xl font-semibold text-yellow-300 text-center">Home</h1>} />
+          <Route path="/login" element={<Login />} />
+          <Route index element={<Home />} />
           <Route path="*" element={<h1 className="text-8xl font-semibold text-yellow-300 text-center">404</h1>} />
         </Routes>
       </Router>

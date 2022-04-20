@@ -2,7 +2,6 @@ import useAuth from "../hooks/useAuth";
 
 const Home = () => {
   const { user, signOff, loading } = useAuth();
-  console.log(user);
 
   const handleSignOff = async () => {
     try {

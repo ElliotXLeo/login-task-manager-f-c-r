@@ -13,7 +13,7 @@ const Login = () => {
   });
   const [error, setError] = useState('');
 
-  const { email, password } = user;
+  const { loginEmail, loginPassword } = user;
 
   const handleChange = (e) => {
     setUser({
@@ -45,8 +45,8 @@ const Login = () => {
 
   return (
     <section className="flex flex-col gap-6 w-4/5 max-w-xs">
-      <h2 class="text-8xl text-center">📋</h2>
-      <h2 class="text-2xl font-semibold text-center">Login</h2>
+      <h2 className="text-8xl text-center">📋</h2>
+      <h2 className="text-2xl font-semibold text-center">Login</h2>
       <form
         onSubmit={handleSubtmit}
         className="flex flex-col gap-4 bg-white shadow-md rounded p-4"
@@ -56,7 +56,7 @@ const Login = () => {
           placeholder="Email"
           id="loginEmail"
           name="login-email"
-          value={email}
+          value={loginEmail}
           onChange={handleChange}
           className="shadow border rounded p-2 focus:outline-none"
           required
@@ -66,14 +66,23 @@ const Login = () => {
           placeholder="Password"
           id="loginPassword"
           name="login-password"
-          value={password}
+          value={loginPassword}
           onChange={handleChange}
           className="shadow border rounded p-2 focus:outline-none"
           required
         />
-        <button className="bg-blue-800 hover:bg-blue-900 py-2 rounded text-white font-bold">
-          Iniciar sesión
-        </button>
+        <div className="flex items-center justify-between">
+          <button className="bg-blue-800 hover:bg-blue-900 py-2 px-4 rounded text-white font-bold">
+            Login
+          </button>
+          <Link
+            to="/recover-password"
+            // onClick={handleResetPassword}
+            className="text-xs text-blue-500 hover:text-blue-800 font-bold"
+          >
+            ¿Olvidaste tu contraseña?
+          </Link>
+        </div>
 
         <div className="flex items-center justify-between">
           <p className="text-sm">No tengo cuenta</p>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Error from "../components/sections/Error";
 import useAuth from "../hooks/useAuth";
 
 const Login = () => {
@@ -44,7 +45,7 @@ const Login = () => {
 
   return (
     <>
-      {error && <div>{error}</div>}
+      {error && <Error error={error} />}
 
       <form
         onSubmit={handleSubtmit}

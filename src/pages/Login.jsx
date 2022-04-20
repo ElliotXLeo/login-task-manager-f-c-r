@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth";
 
 const Login = () => {
 
-  const { signIn } = useAuth();
+  const { signIn, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [user, setUser] = useState({
     loginEmail: '',
@@ -31,6 +31,16 @@ const Login = () => {
       setError(error.message);
     }
   };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      setError('');
+      navigate('/');
+    } catch (error) {
+      setError(error.message);
+    }
+  }
 
   return (
     <>
@@ -59,6 +69,13 @@ const Login = () => {
         />
         <button>Iniciar sesión</button>
       </form>
+
+
+      <button
+        onClick={handleGoogleSignIn}
+      >
+        Iniciar sesión con Google
+      </button>
     </>
   );
 }

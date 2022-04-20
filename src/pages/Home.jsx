@@ -18,14 +18,19 @@ const Home = () => {
     )
   } else {
     return (
-      <>
-        <h1 className="text-2xl font-semibold text-yellow-300 text-center">Welcome: {user.displayName ?? user.email}</h1>
-        <button
-          onClick={handleSignOff}
-        >
-          Cerrar Sesión
-        </button>
-      </>
+      <section className="flex w-4/5 max-w-xs">
+        <div className="flex flex-col gap-4 bg-white shadow-md rounded p-4">
+          <h1 className="text-2xl font-semibold text-center">
+            Welcome: {user.displayName ?? user.email}
+          </h1>
+          <button
+            onClick={handleSignOff}
+            className="bg-blue-800 hover:bg-blue-900 py-2 rounded text-white font-bold"
+          >
+            Cerrar Sesión
+          </button>
+        </div>
+      </section>
     );
   }
 }
